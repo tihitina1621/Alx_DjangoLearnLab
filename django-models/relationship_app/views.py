@@ -17,3 +17,5 @@ def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)  # Get default context data
     book = self.get_object()  # Retrieve the current book instance
     context['average_rating'] = book.get_average_rating() 
+def index(request):
+    return render(request, 'library_detail.html')
