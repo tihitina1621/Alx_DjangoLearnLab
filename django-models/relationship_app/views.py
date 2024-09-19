@@ -3,6 +3,9 @@ from django.views.generic import DetailView
 from .models import Library
 from .models import Book
 from django.views.generic.detail import DetailView
+from django.contrib.auth import login
+from django.contrib.auth import logout
+from django.contrib.auth.forms import UserCreationForm
 
 def book_list(request):      
       books = Book.objects.all()  # Fetch all book instances from the database
@@ -19,3 +22,5 @@ def get_context_data(self, **kwargs):
     context['average_rating'] = book.get_average_rating() 
 def index(request):
     return render(request, 'library_detail.html')
+
+
