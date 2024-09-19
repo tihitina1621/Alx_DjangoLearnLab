@@ -1,4 +1,5 @@
 from django.db import models
+from . import User
 
 class Author(models.Model):
     name = models.CharField(max_length=150)
@@ -13,3 +14,8 @@ class Library(models.Model):
 class Librarian(models.Model):
     name = models.CharField(max_length=200)
     library = models.OneToOneField(Library)
+Admin = ['Librarian', 'Member']
+class UserProfile(models.Model):
+    user = models.OneToOneField(User)
+    role = models.CharField(max_length=50, choices=Admin)
+
