@@ -6,6 +6,14 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import permission_required
+
+@permission_required('relationship_app.can_add_book', raise_exception=True)
+@permission_required('relationship_app.can_change_book', raise_exception=True)
+@permission_required('relationship_app.can_delete_book', raise_exception=True)
+def manage_books(request):
+    # Your view logic here
+    return render(request, 'manage_books.html')
 
 def book_list(request):      
       books = Book.objects.all()  # Fetch all book instances from the database
