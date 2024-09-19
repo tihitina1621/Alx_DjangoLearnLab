@@ -3,8 +3,9 @@ from relationship_app.models import Book, Author, Library
 all_book = Book.objects.all()
 print(all_book)
 
-author = Author.objects.filter(name="James")
-book_author = Book.objects.filter(authors = author)
+
+author = Author.objects.get(name='author_name')
+all = Book.objects.filter(author=author)
 
 library_name = 'new'
 library = Library.objects.get(name=library_name) 
