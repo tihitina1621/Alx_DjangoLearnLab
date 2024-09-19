@@ -1,7 +1,7 @@
-from relationship_app.models import Book, Author, Library
+from relationship_app.models import Book, Author, Library, Librarian
 
-all_book = Book.objects.all()
-print(all_book)
+
+neew = Librarian.objects.get(library="name")
 
 author_name = 'James'
 author = Author.objects.get(name=author_name)
