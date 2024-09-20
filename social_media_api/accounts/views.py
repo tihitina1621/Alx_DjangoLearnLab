@@ -9,6 +9,7 @@ class ULV(generics.GenericAPIView):
 def follow(request):
     following_user = request.user.follows.all()
     posts = Post.objects.filter(author__in=following_users).order_by('created_at')
-    return (following.all(), posts)
+    permission_classes = [permissions.IsAuthenticated]
+    return (following.all(), posts, following_user, permission_classes)
 def
 return Response
