@@ -11,4 +11,4 @@ def follow(request):
     posts = Post.objects.filter(author__in=following_users).order_by('created_at')
     return (following_user, posts)
 def
-retun Response
+return Response
