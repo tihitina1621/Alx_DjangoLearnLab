@@ -8,3 +8,5 @@ class CustomUser(AbstractUser):
     profile_picture = models.ImageField()
     followers = models.ManyToManyField('self', symmetrical=False)
     following = models.ManyToManyField('self', symmetrical=False)
+    def __str__(self):
+        return self.username
