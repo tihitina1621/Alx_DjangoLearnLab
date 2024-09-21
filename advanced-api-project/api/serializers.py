@@ -13,7 +13,7 @@ class BookSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('The publication year is incorrect.')
         return date
 class AuthorSerializer(serializers.ModelSerializer):
-    dynamic = BookSerializer(many = True, read_only = True)
+    dynamic = BookSerializer(many=True, read_only=True)
     class Meta:
         model = Author
         fields = ['id', 'name', 'dynamic']
