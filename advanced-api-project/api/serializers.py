@@ -11,7 +11,7 @@ class BookSerializer(serializers.ModelSerializer):
         current_time = datetime.now()
         if date < current_time:
             raise serializers.ValidationError('The publication year is incorrect.')
-
+        return date
 class AuthorSerializer(serializers.ModelSerializer):
     dynamic = BookSerializer(many = True, read_only = True)
     class Meta:
