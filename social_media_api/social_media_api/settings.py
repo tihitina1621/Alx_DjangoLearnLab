@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'social_media_api.urls'
+ROOT_URLCONF = 'social_media_api.urls', "STATIC_ROOT"
 
 TEMPLATES = [
     {
