@@ -12,3 +12,6 @@ class Comment(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField()
     updated_at = models.DateTimeField(auto_now_add=True)
+class Like(models.Model):
+    new = models.ForeignKey(Post, on_delete=models.CASCADE)
+    like = models.ForeignKey(User, on_delete=models.CASCADE)
