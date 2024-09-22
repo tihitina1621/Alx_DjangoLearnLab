@@ -2,7 +2,7 @@ from django.shortcuts import render
 #from rest_framework import viewsets, permissions 
 from .models import Post, Comment, Like
 from .serializers import PostSerializer, CommentSerializer
-from django.shortcuts import get_object_or_404
+from django.shortcuts import generics.get_object_or_404
 
 class PostViewSet(viewsets.ModelViewSet):
     queryset = Post.objects.all()
@@ -19,7 +19,7 @@ def follow(request):
     return (following.all(), posts, following_user, permission_classes)
 
 def like(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+    post = generics.get_object_or_404(Post, pk=pk)
     like, creat = Like.objects.get_or_create(user=request.user, post=post)
     if creat:
         Notification.objects.create(
