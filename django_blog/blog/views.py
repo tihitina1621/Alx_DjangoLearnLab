@@ -30,3 +30,16 @@ class MyAPIView(APIView):
     def get(self, request):
         return Response({'message': 'Hello, user!'})
 
+class CommentCreateView(generics.CreateAPIView):
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
+
+class CommentUpdateView(generics.UpdateAPIView):
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
+
+class CommentDeleteView(generics.DeleteAPIView):
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
+class LoginRequiredMixin
+class UserPassesTestMixin
