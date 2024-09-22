@@ -1,28 +1,28 @@
 from django.shortcuts import render
 from rest_framework import generics
 from .models import Post
-from .serializers import BookSerializer, AuthorSerializer
+from .serializers import PostSerializer, AuthorSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.views import APIView
 class CustomPostListView(generics.ListAPIView):
-    queryset= Book.objects.all()
-    serializer_class = BookSerializer
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
 
 class CustomPostDetailView(generics.DetailAPIView):
-    queryset= Book.objects.all()
-    serializer_class = BookSerializer
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
 
 class CustomPostCreateView(generics.CreateAPIView):
-    queryset= Book.objects.all()
-    serializer_class = BookSerializer
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
 
 class CustomPostUpdateView(generics.UpdateAPIView):
-    queryset= Book.objects.all()
-    serializer_class = BookSerializer
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
 
 class CustomPostDeleteView(generics.DeleteAPIView):
-    queryset= Book.objects.all()
-    serializer_class = BookSerializer
+    queryset= Post.objects.all()
+    serializer_class = PostSerializer
 
 class MyAPIView(APIView):
     permission = [IsAuthenticated]
