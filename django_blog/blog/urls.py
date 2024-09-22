@@ -9,4 +9,5 @@ urlpatterns = [
     path('comment/<int:pk>/update/', ),
     path( "post/<int:pk>/comments/new/",)
     path("comment/<int:pk>/delete/'),
+    tags/<slug:tag_slug>/", "PostByTagListView.as_view()"
 ]
