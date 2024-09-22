@@ -43,3 +43,4 @@ class CommentDeleteView(generics.DeleteAPIView):
     serializer_class = PostSerializer
 class LoginRequiredMixin
 class UserPassesTestMixin
+"Post.objects.filter", "title__icontains", "tags__name__icontains", "content__icontains"
