@@ -1,15 +1,9 @@
 from django.contrib import admin
-from django.urls import path, include
-from .views import PostList, PostViewSet
-from rest_framework.routers import DefaultRouter
-
-router = DefaultRouter()
-router.register(r'books', PostViewSet)
+from django.urls import path
+from .views import PostDeleteView, PostUpdateView, PostCreateView
 
 urlpatterns = [
-    path('register/', admin.site.urls),
-    path('login/', PostList.as_view(), name='new boook'),
-    path('api/', include(router.urls)),
-    path('unfollow/<int:user_id>/', ),
-    path('follow/<int:user_id>'),
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
+    path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post-update'),
+    path('post/new/', PostCreateView.as_view(), name='post-create'),
 ]
