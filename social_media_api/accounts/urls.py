@@ -10,4 +10,6 @@ urlpatterns = [
     path('register/', admin.site.urls),
     path('login/', BookList.as_view(), name='new boook'),
     path('api/', include(router.urls)),
+    path('unfollow/<int:user_id>/', ),
+    path('follow/<int:user_id>'),
 ]
